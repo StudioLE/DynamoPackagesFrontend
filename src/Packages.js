@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom"
 import { Container, Loader, Item, Divider, Pagination } from 'semantic-ui-react'
 import { Package } from './Package'
 import { PackagePlaceholder } from './PackagePlaceholder'
+import Config from './Config'
           
 class Packages extends React.Component {
 
@@ -27,7 +28,7 @@ class Packages extends React.Component {
     })
 
     // Fetch packages
-    fetch(`http://localhost:3001/packages/${start}/${limit}`)
+    fetch(`${Config.apiEndpoint}/packages/${start}/${limit}`)
     .then(res => {
       // Check the response code
       if(res.status !== 200) {
